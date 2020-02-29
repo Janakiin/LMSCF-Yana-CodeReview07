@@ -1,0 +1,27 @@
+<div class="myContainer"></div>
+
+<div class="container" >
+	<div class="border p-3 mt-5">
+		<img src="{{card.img}}" alt="asd" width="100%"class="mb-5">
+		<p class="display-4 text-center">{{card.destination}}</p>
+		<p><span class="h5">Description: </span>{{card.description}}</p>
+		<p><span class="h5">Startdate:  </span>{{card.startDate}}</p>
+		<p><span class="h5">Duration:  </span>{{card.duration}}</p>
+		
+		<hr>
+		<p class="h5 mb-5">Price:   <span class="text-success h3">100 €</span></p>
+		<a (click)="addToCart(card)" class="btn btn-primary button text-light">Add to cart</a>
+	</div>
+
+	<div class="d-flex justify-content-center">
+		<a routerLink = '/travel' class="btn btn-primary m-2 ">Back to Destinations</a>
+			
+	</div>
+
+
+	
+
+	
+	
+</div>
+

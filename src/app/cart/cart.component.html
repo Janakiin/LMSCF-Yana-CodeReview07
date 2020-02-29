@@ -1,0 +1,41 @@
+<div class="myContainer"></div>
+
+<div class="bg-light">	
+	<h1 class="text-center">Cart</h1>
+
+	<div>
+		<ng-template [ngIf]="items.length > 0" [ngIfElse]="none">
+			<ul>
+				<li class="row" *ngFor="let item of items; index as id">
+					<img src="{{item.img}}" alt="asdf" class="d-none d-lg-inline col-lg-5 mb-3">
+					<div class="col-9 p-3">
+						<p class="mb-3 h4">{{item.destination}}</p>
+						<p class="">Price: {{item.price}} €</p>
+						<p class="">Description: {{item.description}}</p>
+						<p> For {{item.quantity}} person</p>
+						<div class="row">
+							<button (click)="addQuantity(item)" class="col-2 col-lg-1 border text-center ml-3">+</button>
+							<button (click)="substractQuantity(id)" class="col-2 col-lg-1 border text-center">-</button>
+						</div>
+					</div>
+					
+				</li>
+			</ul>
+			<!-- <h3 class="font-weight-bold ml-5">Total: {{total()}}</h3> -->
+		
+		<hr>
+		<h2>Total: {{total()}}</h2>
+
+
+		</ng-template>
+		<ng-template #none>
+			<p class="text-center">There is no travels are bought</p>
+		</ng-template>	
+		
+		<div class="d-flex justify-content-center">
+			<a routerLink = '/travel' class="btn btn-primary m-2 ">Back to Destinations</a>
+			
+		</div>
+
+	</div>
+
