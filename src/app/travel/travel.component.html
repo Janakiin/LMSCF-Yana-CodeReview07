@@ -1,55 +1,56 @@
 <div class="myContainer"></div>
 
-<div class="container">
+<div class="container pt-4">
 	<div class="border p-4">
-	<h3 class="text-secondary">Form for moderator</h3>
-	<h4>Create a new card here</h4>
+		<h3 class="text-secondary">Form for moderator</h3>
+		<h4>Create a new card here</h4>
 
-	<form [formGroup]="newcard" (ngSubmit)="onSubmit(newcard.value)">
-		
-		<label for="img" class="col-12">
-			<input id="img" type="text" formControlName="img" placeholder="Image URL">
-		</label>
-		<label class="col-12">
+		<form [formGroup]="newcard" (ngSubmit)="sendData(newcard.value)">
 			
-			<input type="text" formControlName="destination" placeholder="Destination's name">
-		</label>
-		<label class="col-12">
-		
-			<input type="text" formControlName="description" placeholder="Your destination's description">
-		</label>
-		<label class="col-12">
+			<label for="img" class="col-12">
+				<input id="img" type="text" formControlName="img" placeholder="Image URL">
+			</label>
+			<label class="col-12">
+				
+				<input type="text" formControlName="destination" placeholder="Destination's name">
+			</label>
+			<label class="col-12">
 			
-			<input type="text" formControlName="startDate" placeholder="Starting date">
-		</label>
-		<label class="col-12">
-			
-			<input type="text" formControlName="duration" placeholder="Duration(days)">
-		</label>
-		<label class="col-12">
-			
-			<input type="text" formControlName="price" placeholder="Price(€)">
-		</label>
+				<input type="text" formControlName="description" placeholder="Your destination's description">
+			</label>
+			<label class="col-12">
+				
+				<input type="text" formControlName="startDate" placeholder="Starting date">
+			</label>
+			<label class="col-12">
+				
+				<input type="text" formControlName="duration" placeholder="Duration(days)">
+			</label>
+			<label class="col-12">
+				
+				<input type="text" formControlName="price" placeholder="Price(€)">
+			</label>
 
-		
-		<button type="submit" value="Submit" (click)="onSubmit(newcard.value)" class="ml-3 mt-5 col-5 col-lg-3">Send</button>
-		
+			<a class="btn btn-primary text-white ml-3 mt-3 col-5 col-lg-3" (click)="sendData(newcard.value)">Send</a>
+			
 
 
-	</form>
+		</form>
 	
 	
 	</div>
 
-	<button (click)="sorting()" id="sortingbtn" class="bg-info text-light h4 p-4 margin-auto border" type="button">&#9660;Sort by price</button>
+	<a routerLink="/travel" (click)="sorting()"  id="sortingbtn" class="bg-info btn text-light h4 p-2 margin-auto my-3 border" type="button">&#9660;Sort by price</a>
 
-	<div  class="row">
+	<div  class="row border p-4 mb-4">
 		<div class="col-12 col-lg-4 mb-3 position-relative" *ngFor="let card of cardArr ; index as travelId">
 			<a [routerLink]="['/travel', travelId]"><img src="{{card.img}}" alt="destinationimage" width="300px" height="200px"></a>
 			<h4 class="title">{{card.destination}}</h4>
 			<p class="price">{{card.price}} €</p>
 		</div>
-		
+		<div id="cards" class="row">
+			
+		</div>
 	</div>
 
 </div>

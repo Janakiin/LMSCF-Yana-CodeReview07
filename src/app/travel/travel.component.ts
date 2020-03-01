@@ -29,29 +29,42 @@ export class TravelComponent implements OnInit {
 	})
 
   constructor(private formFuilder: FormBuilder) { 
-	  this.newcard = this.formFuilder.group({
-	  		img: "",
-	  		destination: "",
-	  		description: "",
-	  		startDate: "",
-	  		duration: "",
-	  		price: "",
-	  		quantity: ""
-	  	})
+	  // this.newcard = this.formBuilder.group({
+	  // 		img: "",
+	  // 		destination: "",
+	  // 		description: "",
+	  // 		startDate: "",
+	  // 		duration: "",
+	  // 		price: "",
+	  // 		quantity: ""
+	  // 	})
 	}
 
   ngOnInit(): void {
   }
 
-   onSubmit(obj){
+   sendData(newcard){
+   	console.log("onSubmit runs")
 		this.card = this.newcard.value;
 		this.cardArr.push(this.card);
 		console.log(this.card);
 	}
 
 	sorting(){
-		cardArr.sort(function(a, b){return Number(a)-Number(b)});
+		cardArr.sort(function(a, b){return Number(a.price)-Number(b.price)});
 		console.log(cardArr)
+		// for ( let i of cardArr){
+		// 	$("#cards").append(`
+		// 		<div  class="row" id="cards">
+		// 			<div class="col-12 col-lg-4 mb-3 position-relative" *ngFor="let card of cardArr ; index as travelId">
+		// 			<a [routerLink]="['/travel', travelId]"><img src="${i.img}" alt="destinationimage" width="300px" height="200px"></a>
+		// 			<h4 class="title">${i.destination}</h4>
+		// 			<p class="price">${i.price} €</p>
+		// 		</div>
+			
+		// 	</div>
+		// 	`);
+		// };
 	};
 
 

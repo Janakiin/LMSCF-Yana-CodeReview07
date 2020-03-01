@@ -14,8 +14,7 @@ import { CartService } from '../cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-	items = CartService.items;
-	total: number;
+	items;
 
 
   constructor(private cartService: CartService) {
@@ -28,6 +27,14 @@ export class CartComponent implements OnInit {
 
   total(){
     return this.cartService.getTotal();
+  }
+
+   addQuantity(id){
+    this.cartService.addToCart(id);
+  }
+
+  substractQuantity(id){
+    this.cartService.substractItem(id);
   }
 
 }

@@ -13,7 +13,9 @@ export class CartService {
 
 
 addToCart(card) {
-	this.items.push(card);
+  card.quantity++;
+  if (card.quantity == 1){
+	this.items.push(card);}
 	console.log(this.items)
 };
 
@@ -31,8 +33,22 @@ clearCart(){
     for (let value of this.items) {
       this.total += value.price*value.quantity;
     }
+
+    if(this.total > 200){
+      this.total = this.total * 0.9;
+    }
+    if(this.total > 300){
+      this.total = this.total * 0.8;
+    }
+
     return this.total;
   }
 
+  substractItem(id){
+    this.items[id].quantity--;
+    if (this.items[id].quantity == 0){
+        this.items.splice(id, 1);
+    }
+  }
 
 }

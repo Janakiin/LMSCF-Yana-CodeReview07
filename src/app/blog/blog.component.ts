@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-blog',
@@ -11,5 +12,10 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  classActive() {
+  var element = document.getElementById("myDIV");
+  element.classList.remove("mystyle");
+}
 
 }

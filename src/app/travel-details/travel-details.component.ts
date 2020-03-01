@@ -16,7 +16,7 @@ export class TravelDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private cartService : CartService) { }
 
   addToCart(card){
-  	// alert("Your travel is in the card :)");
+  	alert("Your travel is in the card :)");
   	this.cartService.addToCart(card);
 
   }
